@@ -1,0 +1,24 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 modal-backdrop" *ngIf="show"
+  (click)="onBackdropClick($event)">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative" (click)="$event.stopPropagation()">
+    <button class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl" (click)="onSecondaryButton()">
+      &times;
+    </button>
+
+    <h2 class="text-lg font-semibold mb-4 text-gray-800">{{ title }}</h2>
+
+    <ng-content></ng-content>
+
+    <div class="mt-6 flex justify-end gap-3">
+      <button type="button" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 font-medium"
+        (click)="onSecondaryButton()">
+        ❌ {{ modalConfig.secondaryButtonText }}
+      </button>
+      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 font-medium"
+        (click)="onPrimaryButton()">
+        💾 {{ modalConfig.primaryButtonText }}
+      </button>
+    </div>
+
+  </div>
+</div>
