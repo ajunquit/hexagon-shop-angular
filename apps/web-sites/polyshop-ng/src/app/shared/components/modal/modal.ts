@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalAction } from './enums/modal-action.enum';
 import { ModalConfig } from './models/modal-config.model';
 
 @Component({
   selector: 'app-modal',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './templates/modal.html',
   styleUrl: './modal.scss',
 })

@@ -5,6 +5,8 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
+  imports: [RouterOutlet],
+  standalone: true,
 })
 export class App {
   protected readonly title = signal('polyshop-ng');
