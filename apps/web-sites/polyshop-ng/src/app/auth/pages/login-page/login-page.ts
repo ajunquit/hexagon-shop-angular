@@ -4,16 +4,27 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { LoginRequest } from '../../models/login-request.model';
 import { User } from '../../models/user.model';
+import { USER_DATA_MOCK } from '../../mocks/user-data-mock';
+import { LoginConfig } from '../../models/login-config.model';
 
 @Component({
   selector: 'app-login',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './login.html',
-  styleUrl: './login.scss',
+  templateUrl: './template/login-page.html',
+  styleUrl: './login-page.scss',
 })
-export class Login {
+export class LoginPage {
   public loginForm: FormGroup;
   private authenticatedUser!: User;
+
+  public loginConfig: LoginConfig = {
+    title: 'Login',
+    emailPlaceholder: 'The email is required.',
+    passwordPlaceholder: 'The password is required.',
+    submitButtonLabel: 'Sign In',
+    emailLabel: 'Email',
+    passwordLabel: 'Password',
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,6 +48,7 @@ export class Login {
   onSubmit() {
     if (this.loginForm.valid) {
       const request: LoginRequest = this.getRequest();
+      this.onSuccess(USER_DATA_MOCK);
       /*this.authService.login(request).subscribe({
         next: (user: User) => this.onSuccess(user),
         error: (err) => console.error('Error al iniciar sesión:', err),
