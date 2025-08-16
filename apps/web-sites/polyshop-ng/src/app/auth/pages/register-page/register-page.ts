@@ -3,15 +3,29 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterRequest } from '../../models/register-request.model';
+import { RegisterConfig } from '../../models/register-config.model';
 
 @Component({
   selector: 'app-register',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './register.html',
-  styleUrl: './register.scss',
+  templateUrl: './template/register-page.html',
+  styleUrl: './register-page.scss',
 })
-export class Register {
+export class RegisterPage {
   public registerForm: FormGroup;
+
+  public registerConfig: RegisterConfig = {
+    title: 'Register',
+    userNamelabel: 'Username',
+    emailLabel: 'Email',
+    passwordLabel: 'Password',
+    confirmPasswordLabel: 'Confirm Password',
+    submitButtonLabel: 'Register',
+    userNameValidation: 'Username is required',
+    emailValidation: 'Enter a valid email address',
+    passwordValidation: 'Password is required',
+    confirmPasswordValidation: 'The passwords do not match',
+  };
 
   constructor(
     private formBuilder: FormBuilder,
