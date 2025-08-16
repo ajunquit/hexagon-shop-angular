@@ -6,7 +6,7 @@ import { ModalConfig } from './models/modal-config.model';
 @Component({
   selector: 'app-modal',
   imports: [CommonModule],
-  templateUrl: './templates/modal.html',
+  templateUrl: './template/modal.html',
   styleUrl: './modal.scss',
 })
 export class Modal {
