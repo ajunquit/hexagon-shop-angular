@@ -2,18 +2,26 @@
       'w-55 block': isSidebarOpen,
       'w-0 hidden': !isSidebarOpen
     }">
-    <div class="h-16 flex items-center justify-center font-bold text-green-600 text-lg">
+    <div class="h-16 flex items-center justify-center font-bold text-black text-lg tracking-normal duration-200 shadow-md">
+        <ng-icon name="bootstrapHexagonHalf" class="mr-2" />
         {{sidebarConfig.title}}
     </div>
-    <hr class="border-gray-200">
     <nav class="p-4">
-        <a routerLink="{{sidebarConfig.optionsMenu.dashboard.route}}" routerLinkActive="font-bold text-green-600"
-            class="block py-2 px-4 rounded hover:bg-black hover:text-white">📊 {{sidebarConfig.optionsMenu.dashboard.label}}</a>
-        <a routerLink="{{sidebarConfig.optionsMenu.items.route}}" routerLinkActive="font-bold text-green-600"
-            class="block py-2 px-4 rounded hover:bg-black hover:text-white">⌚ {{sidebarConfig.optionsMenu.items.label}}</a>
-        <a routerLink="{{sidebarConfig.optionsMenu.customers.route}}" routerLinkActive="font-bold text-green-600"
-            class="block py-2 px-4 rounded hover:bg-black hover:text-white">👥 {{sidebarConfig.optionsMenu.customers.label}}</a>
-        <a routerLink="{{sidebarConfig.optionsMenu.orders.route}}" routerLinkActive="font-bold text-green-600"
-            class="block py-2 px-4 rounded hover:bg-black hover:text-white">📦 {{sidebarConfig.optionsMenu.orders.label}}</a>
+        <a routerLink="{{sidebarConfig.optionsMenu.dashboard.route}}" routerLinkActive="font-bold text-yellow-600"
+            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-black hover:text-white">
+            <ng-icon name="bootstrapPieChartFill" />
+            {{sidebarConfig.optionsMenu.dashboard.label}}</a>
+        <a routerLink="{{sidebarConfig.optionsMenu.items.route}}" routerLinkActive="font-bold text-yellow-600"
+            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-black hover:text-white">
+            <ng-icon name="bootstrapCircleSquare" />
+            {{sidebarConfig.optionsMenu.items.label}}</a>
+        <a routerLink="{{sidebarConfig.optionsMenu.customers.route}}" routerLinkActive="font-bold text-yellow-600"
+            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-black hover:text-white">
+             <ng-icon name="bootstrapPersonFill" />
+            {{sidebarConfig.optionsMenu.customers.label}}</a>
+        <a routerLink="{{sidebarConfig.optionsMenu.orders.route}}" routerLinkActive="font-bold text-yellow-600"
+            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-black hover:text-white">
+            <ng-icon name="bootstrapBoxFill" />
+            {{sidebarConfig.optionsMenu.orders.label}}</a>
     </nav>
 </aside>

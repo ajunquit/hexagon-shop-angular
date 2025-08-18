@@ -3,12 +3,15 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { Sidebar } from '../sidebar/sidebar';
 import { MainLayoutConfig } from '../../models/main-layout-config';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { heroArrowLeftStartOnRectangle } from '@ng-icons/heroicons/outline';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [CommonModule, Sidebar, RouterOutlet],
+  imports: [CommonModule, Sidebar, RouterOutlet, NgIcon],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
+  viewProviders: [provideIcons({ heroArrowLeftStartOnRectangle })],
 })
 export class MainLayout {
   public isSidebarOpen: boolean = true;
