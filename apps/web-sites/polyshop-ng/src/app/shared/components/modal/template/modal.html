@@ -1,0 +1,27 @@
+<div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 modal-backdrop" *ngIf="show"
+  (click)="onBackdropClick($event)">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative" (click)="$event.stopPropagation()">
+    <button class="absolute top-2 right-2 text-black hover:text-yellow-600 text-xl" (click)="onSecondaryButton()">
+      <ng-icon name="bootstrapXCircleFill" />
+      <span class="sr-only">Cerrar</span>
+    </button>
+
+    <h2 class="text-lg font-semibold mb-4 text-gray-800">{{ title }}</h2>
+
+    <ng-content></ng-content>
+
+    <div class="mt-6 flex justify-end gap-3">
+      <button type="button" class="flex items-center gap-1 px-4 py-2 bg-gray-500 text-white rounded-full hover:bg-yellow-600 font-medium"
+        (click)="onSecondaryButton()">
+        <ng-icon name="bootstrapXCircleFill" />
+        {{ modalConfig.secondaryButtonText }}
+      </button>
+      <button type="submit" class="flex items-center gap-1 px-4 py-2 bg-black text-white rounded-full hover:bg-yellow-600 font-medium"
+        (click)="onPrimaryButton()">
+        <ng-icon name="bootstrapArrowRightCircleFill" />
+        {{ modalConfig.primaryButtonText }}
+      </button>
+    </div>
+
+  </div>
+</div>

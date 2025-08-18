@@ -1,0 +1,22 @@
+<div class="flex h-screen bg-gray-100">
+  <app-sidebar [isSidebarOpen]="isSidebarOpen"></app-sidebar>
+  <!-- Main content -->
+  <div class="flex-1 flex flex-col">
+    <!-- Header -->
+    <header class="h-16 bg-white shadow-md flex items-center px-4 justify-between">
+      <button (click)="toggleSidebar()" class="text-gray-600 hover:text-blue-600">
+        ☰
+      </button>
+
+      <h1 class="text-xl font-semibold text-gray-700">{{userName}}</h1>
+      <button (click)="logout()" class="text-white hover:bg-yellow-600 bg-black py-2 font-medium px-4 rounded-full transition-normal duration-200 flex items-center gap-1">
+        <ng-icon name="heroArrowLeftStartOnRectangle"/> {{mainLayoutConfig.quit}}
+      </button>
+    </header>
+
+    <!-- Content -->
+    <main class="p-6 overflow-y-auto flex-1">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
