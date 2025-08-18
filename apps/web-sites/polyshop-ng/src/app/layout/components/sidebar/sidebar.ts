@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { OPTIONS_MENU_DATA_MOCK } from '../../mocks/layout-data-mock';
 import { SidebarConfig } from '../../models/sidebar-config.model';
@@ -12,6 +12,7 @@ import {
   bootstrapShop,
   bootstrapHexagon,
   bootstrapHexagonHalf,
+  bootstrapChevronDown,
 } from '@ng-icons/bootstrap-icons';
 
 @Component({
@@ -27,6 +28,7 @@ import {
       bootstrapCircleSquare,
       bootstrapShop,
       bootstrapHexagonHalf,
+      bootstrapChevronDown,
     }),
   ],
 })
@@ -38,4 +40,9 @@ export class Sidebar {
     title: 'Hexagon',
     optionsMenu: OPTIONS_MENU_DATA_MOCK,
   };
+
+  ordersOpen = false;
+  isOrdersSection = () => this.router.url.startsWith('/orders');
+
+  constructor(public router: Router) {}
 }

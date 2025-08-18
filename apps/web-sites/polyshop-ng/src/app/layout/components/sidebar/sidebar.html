@@ -2,7 +2,8 @@
       'w-55 block': isSidebarOpen,
       'w-0 hidden': !isSidebarOpen
     }">
-    <div class="h-16 flex items-center justify-center font-bold text-black text-lg tracking-normal duration-200 shadow-md">
+    <div
+        class="h-16 flex items-center justify-center font-bold text-black text-lg tracking-normal duration-200 shadow-md">
         <ng-icon name="bootstrapHexagonHalf" class="mr-2" />
         {{sidebarConfig.title}}
     </div>
@@ -17,11 +18,38 @@
             {{sidebarConfig.optionsMenu.items.label}}</a>
         <a routerLink="{{sidebarConfig.optionsMenu.customers.route}}" routerLinkActive="font-bold text-yellow-600"
             class="flex items-center gap-2 py-2 px-3 rounded hover:bg-black hover:text-white">
-             <ng-icon name="bootstrapPersonFill" />
+            <ng-icon name="bootstrapPersonFill" />
             {{sidebarConfig.optionsMenu.customers.label}}</a>
-        <a routerLink="{{sidebarConfig.optionsMenu.orders.route}}" routerLinkActive="font-bold text-yellow-600"
+        <div>
+            <button [ngClass]="{'text-yellow-600': isOrdersSection(), 'font-bold': isOrdersSection()}" type="button"
+                (click)="ordersOpen = !ordersOpen" [attr.aria-expanded]="ordersOpen"
+                class="w-full flex items-center justify-between gap-2 py-2 px-3 rounded hover:bg-black hover:text-white">
+                <span class="flex items-center gap-2">
+                    <ng-icon name="bootstrapBoxFill" class="size-5 shrink-0"></ng-icon>
+                    <span>{{ sidebarConfig.optionsMenu.orders.label }}</span>
+                </span>
+                <!-- Chevron que rota -->
+                <ng-icon name="bootstrapChevronDown" class="size-4 transition-transform"
+                    [class.rotate-180]="ordersOpen"></ng-icon>
+            </button>
+
+            <div class="grid transition-[grid-template-rows] duration-200 ease-in-out"
+                [style.gridTemplateRows]="ordersOpen ? '1fr' : '0fr'">
+                <div class="overflow-hidden">
+                    <!-- Línea vertical + sangría -->
+                    <div class="ml-6 border-l border-gray-200 dark:border-white/20">
+                        <a [routerLink]="'/orders'" routerLinkActive="text-yellow-600 font-medium"
+                            class="block pl-4 py-1 hover:text-black">All Orders</a>
+
+                        <a [routerLink]="'/orders/new'" routerLinkActive="text-yellow-600 font-medium"
+                            class="block pl-4 py-1 hover:text-black">New</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <a routerLink="{{sidebarConfig.optionsMenu.orders.route}}" routerLinkActive="font-bold text-yellow-600"
             class="flex items-center gap-2 py-2 px-3 rounded hover:bg-black hover:text-white">
             <ng-icon name="bootstrapBoxFill" />
-            {{sidebarConfig.optionsMenu.orders.label}}</a>
+            {{sidebarConfig.optionsMenu.orders.label}}</a> -->
     </nav>
 </aside>
