@@ -1,30 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { RegisterRequest } from '../../models/register-request.model';
 import { RegisterConfig } from '../../models/register-config.model';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { bootstrapHexagonHalf, bootstrapPersonPlusFill } from '@ng-icons/bootstrap-icons';
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgIcon, RouterLink],
   templateUrl: './template/register-page.html',
   styleUrl: './register-page.scss',
+  viewProviders: [provideIcons({ bootstrapPersonPlusFill, bootstrapHexagonHalf })],
 })
 export class RegisterPage {
   public registerForm: FormGroup;
 
   public registerConfig: RegisterConfig = {
-    title: 'Register',
+    title: 'Sign Up !',
     userNamelabel: 'Username',
     emailLabel: 'Email',
     passwordLabel: 'Password',
     confirmPasswordLabel: 'Confirm Password',
-    submitButtonLabel: 'Register',
+    submitButtonLabel: 'Sign Up',
     userNameValidation: 'Username is required',
     emailValidation: 'Enter a valid email address',
     passwordValidation: 'Password is required',
     confirmPasswordValidation: 'The passwords do not match',
+    acceptTermsLabel: 'I accept the terms and conditions',
   };
 
   constructor(
@@ -38,6 +42,7 @@ export class RegisterPage {
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required],
+        acceptTerms: [false, Validators.requiredTrue],
       },
       { validators: this.passwordsMatch }
     );
@@ -63,6 +68,10 @@ export class RegisterPage {
     return this.registerForm.errors?.['passwordMismatch'];
   }
 
+  get acceptTerms() {
+    return this.registerForm.get('acceptTerms')!;
+  }
+
   private passwordsMatch(form: FormGroup) {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
@@ -70,10 +79,10 @@ export class RegisterPage {
   }
 
   onSubmit() {
-    if (this.registerForm.valid) {
+    if (this.registerForm.valid && this.acceptTerms.value) {
       const { username, email, password } = this.registerForm.value;
       const request: RegisterRequest = { username, email, password };
-
+      console.log('Register Request:', request);
       // this.authService.register(request).subscribe({
       //   next: (user: User) => {
       //     this.router.navigate(['/login']);

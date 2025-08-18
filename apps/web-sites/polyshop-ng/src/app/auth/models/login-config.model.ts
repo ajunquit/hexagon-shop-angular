@@ -5,4 +5,5 @@ export interface LoginConfig {
   submitButtonLabel: string;
   emailLabel: string;
   passwordLabel: string;
+  registerLinkLabel: string;
 }

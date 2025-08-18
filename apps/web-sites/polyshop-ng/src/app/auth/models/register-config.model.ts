@@ -9,4 +9,5 @@ export interface RegisterConfig {
   emailValidation: string;
   passwordValidation: string;
   confirmPasswordValidation: string;
+  acceptTermsLabel?: string;
 }
