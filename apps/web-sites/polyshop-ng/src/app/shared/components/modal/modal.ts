@@ -1,13 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { bootstrapArrowRightCircleFill, bootstrapXCircleFill } from '@ng-icons/bootstrap-icons';
+import { NgIcon, provideIcons } from '@ng-icons/core';
 import { ModalAction } from './enums/modal-action.enum';
 import { ModalConfig } from './models/modal-config.model';
 
 @Component({
   selector: 'app-modal',
-  imports: [CommonModule],
+  imports: [CommonModule, NgIcon],
   templateUrl: './template/modal.html',
   styleUrl: './modal.scss',
+  viewProviders: [provideIcons({ bootstrapXCircleFill, bootstrapArrowRightCircleFill })],
 })
 export class Modal {
   @Input() show: boolean = false;
@@ -18,7 +21,6 @@ export class Modal {
   public modalConfig: ModalConfig = {
     primaryButtonText: 'OK',
     secondaryButtonText: 'Cancel',
-    backdropClickEnabled: true,
   };
 
   public onSecondaryButton(): void {
