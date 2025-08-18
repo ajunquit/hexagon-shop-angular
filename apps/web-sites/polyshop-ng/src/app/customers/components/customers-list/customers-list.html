@@ -1,1 +1,49 @@
-<p>customers-list works!</p>
+<div class="bg-white p-6 rounded shadow-md">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-xl font-semibold text-black">
+      <ng-icon name="bootstrapPersonFill" />
+      <span>{{title}}</span>
+    </h2>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Name
+          </th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Email
+          </th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Phone
+          </th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let customer of customers">
+          <td class="px-6 py-4 whitespace-nowrap">{{ customer.name }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ customer.email }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ customer.phone }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <button
+              class="inline-flex items-center gap-1 px-2 py-1 bg-black text-white hover:bg-yellow-600 text-sm font-medium rounded-full mr-2 transition duration-200"
+              (click)="onEditCustomer(customer)">
+              <ng-icon name="bootstrapPencilFill" />
+              <span>Edit</span>
+            </button>
+            <button
+              class="inline-flex items-center gap-1 px-2 py-1 bg-black text-white hover:bg-yellow-600 text-sm font-medium rounded-full transition duration-200"
+              (click)="onDeleteCustomer(customer)">
+              <ng-icon name="bootstrapTrashFill" />
+              <span>Delete</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
