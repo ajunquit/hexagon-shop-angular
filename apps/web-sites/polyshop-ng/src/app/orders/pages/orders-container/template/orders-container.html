@@ -1,1 +1,18 @@
-<p>orders-container works!</p>
+<div class="flex items-center justify-between mb-6">
+  <h2 class="text-2xl font-semibold text-black">{{config.title}}</h2>
+  <button (click)="onNewOrder()"
+    class="flex items-center gap-2 bg-black hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-full shadow-md transition duration-200">
+    <ng-icon name="bootstrapPlusCircleFill" />
+    <span class="text">{{config.newButtonLabel}}</span>
+  </button>
+
+</div>
+
+<div class="grid grid-cols-1 gap-4 mt-6">
+  <app-orders-list [orders]="orders" (editAction)="handleEditAction($event)" (deleteAction)="handleDeleteAction($event)"></app-orders-list>
+</div>
+
+<app-modal [title]="isNewOrder ? 'Crear Orden' : 'Editar Orden'" [show]="isModalOpen"
+  (modalAction)="handleModalAction($event)">
+  <app-orders-form [order]="currentOrder" (formSubmit)="handleSaveAction($event)"></app-orders-form>
+</app-modal>
