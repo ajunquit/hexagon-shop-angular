@@ -7,7 +7,6 @@ import { User } from '../../models/user.model';
 import { USER_DATA_MOCK } from '../../mocks/user-data-mock';
 import { LoginConfig } from '../../models/login-config.model';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { heroArrowRightStartOnRectangle } from '@ng-icons/heroicons/outline';
 import { bootstrapHexagonHalf } from '@ng-icons/bootstrap-icons';
 
 @Component({
@@ -15,7 +14,7 @@ import { bootstrapHexagonHalf } from '@ng-icons/bootstrap-icons';
   imports: [CommonModule, ReactiveFormsModule, NgIcon, RouterLink],
   templateUrl: './template/login-page.html',
   styleUrl: './login-page.scss',
-  viewProviders: [provideIcons({ heroArrowRightStartOnRectangle, bootstrapHexagonHalf })],
+  viewProviders: [provideIcons({ bootstrapHexagonHalf })],
 })
 export class LoginPage {
   public loginForm: FormGroup;

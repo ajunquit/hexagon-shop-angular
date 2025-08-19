@@ -2,17 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { RegisterRequest } from '../../models/register-request.model';
-import { RegisterConfig } from '../../models/register-config.model';
+import { bootstrapHexagonHalf } from '@ng-icons/bootstrap-icons';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { bootstrapHexagonHalf, bootstrapPersonPlusFill } from '@ng-icons/bootstrap-icons';
+import { RegisterConfig } from '../../models/register-config.model';
+import { RegisterRequest } from '../../models/register-request.model';
 
 @Component({
   selector: 'app-register',
   imports: [CommonModule, ReactiveFormsModule, NgIcon, RouterLink],
   templateUrl: './template/register-page.html',
   styleUrl: './register-page.scss',
-  viewProviders: [provideIcons({ bootstrapPersonPlusFill, bootstrapHexagonHalf })],
+  viewProviders: [provideIcons({ bootstrapHexagonHalf })],
 })
 export class RegisterPage {
   public registerForm: FormGroup;
