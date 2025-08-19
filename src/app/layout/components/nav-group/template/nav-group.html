@@ -23,7 +23,7 @@
 
         <!-- Enlace simple -->
         <a *ngIf="!it.children?.length" [routerLink]="it.route" routerLinkActive="font-medium"
-          class="block pl-4 py-1 hover:text-black dark:hover:text-white flex items-center gap-2">
+          class="pl-4 py-1 hover:text-black dark:hover:text-white flex items-center gap-2">
           <ng-icon *ngIf="it.iconName" [name]="it.iconName" class="size-4"></ng-icon>
           <span>{{ it.label }}</span>
         </a>

@@ -1,22 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { Sidebar } from '../sidebar/sidebar';
-import { MainLayoutConfig } from '../../models/main-layout-config';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroArrowLeftStartOnRectangle } from '@ng-icons/heroicons/outline';
 import { heroChevronDoubleLeftSolid } from '@ng-icons/heroicons/solid';
+import { User } from '../../../auth/models/user.model';
+import { MainLayoutConfig } from '../../models/main-layout-config';
+import { Sidebar } from '../sidebar/sidebar';
+import { UserMenu } from '../user-menu/user-menu';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [CommonModule, Sidebar, RouterOutlet, NgIcon],
+  imports: [CommonModule, Sidebar, RouterOutlet, NgIcon, UserMenu],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
   viewProviders: [provideIcons({ heroArrowLeftStartOnRectangle, heroChevronDoubleLeftSolid })],
 })
 export class MainLayout {
   public isSidebarOpen: boolean = true;
-  public userName: string = '';
+  public user!: User;
   public mainLayoutConfig: MainLayoutConfig = {
     quit: 'Logout',
   };
@@ -28,13 +30,13 @@ export class MainLayout {
   }
 
   public internalInit(): void {
-    this.setUserName();
+    this.getUserFromLocalStorage();
   }
 
-  public setUserName(): void {
-    const user = localStorage.getItem('user');
-    if (user) {
-      this.userName = JSON.parse(user!).name;
+  private getUserFromLocalStorage(): void {
+    var userString = localStorage.getItem('user');
+    if (userString) {
+      this.user = JSON.parse(userString!);
     }
   }
 

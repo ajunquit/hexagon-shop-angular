@@ -1,0 +1,48 @@
+<div class="relative" (click)="$event.stopPropagation()">
+    <!-- Botón avatar -->
+    <button type="button" (click)="toggle()" [attr.aria-expanded]="isOpen" aria-haspopup="menu"
+        class="flex items-center rounded-full p-1 hover:ring-2 ring-yellow-400 transition">
+        <img [src]="avatarUrl" [alt]="name" class="size-9 rounded-full object-cover" />
+    </button>
+
+    <!-- Dropdown -->
+    <div *ngIf="isOpen"
+        class="absolute right-0 mt-2 w-72 origin-top-right rounded-xl border border-gray-200 bg-white shadow-xl z-50"
+        role="menu" aria-label="User menu">
+        <!-- Header del usuario -->
+        <div class="p-3 flex items-center gap-3">
+            <img [src]="avatarUrl" [alt]="name" class="size-10 rounded-lg object-cover" />
+            <div class="min-w-0">
+                <div class="font-semibold truncate">{{ name }}</div>
+                <div class="text-sm text-gray-500 truncate">{{ email }}</div>
+            </div>
+        </div>
+        <div class="border-t"></div>
+
+        <!-- Acciones -->
+        <ul class="p-2">
+            <li>
+                <a [routerLink]="profileLink" role="menuitem"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-yellow-400 hover:rounded-full" (click)="close()">
+                    <ng-icon name="bootstrapPersonCircle" class="size-5"></ng-icon>
+                    <span>Your Profile</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="settingsLink" role="menuitem"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-yellow-400 hover:rounded-full" (click)="close()">
+                    <ng-icon name="bootstrapGear" class="size-5"></ng-icon>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <button type="button" role="menuitem"
+                    class="w-full text-left flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-yellow-400 hover:rounded-full"
+                    (click)="onLogout()">
+                    <ng-icon name="bootstrapBoxArrowRight" class="size-5"></ng-icon>
+                    <span>Log out</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

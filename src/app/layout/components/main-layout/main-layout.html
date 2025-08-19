@@ -4,15 +4,13 @@
   <div class="flex-1 flex flex-col">
     <!-- Header -->
     <header class="h-16 bg-white shadow-md flex items-center px-4 justify-between">
-      <button (click)="toggleSidebar()" class="text-gray-600 hover:text-blue-600">
+      <button (click)="toggleSidebar()" class="text-black">
         <ng-icon name="heroChevronDoubleLeftSolid" class="transition-transform duration-500"
           [class.rotate-180]="!isSidebarOpen"></ng-icon>
       </button>
 
-      <h1 class="text-xl font-semibold text-gray-700">{{userName}}</h1>
-      <button (click)="logout()" class="text-white hover:text-black  hover:bg-yellow-400 bg-black py-2 font-medium px-4 rounded-full transition-normal duration-200 flex items-center gap-1">
-        <ng-icon name="heroArrowLeftStartOnRectangle"/> {{mainLayoutConfig.quit}}
-      </button>
+      <app-user-menu [name]="user.name" [email]="user.email" [avatarUrl]="'/user-avatar.png'" [profileLink]="'/profile'"
+        [settingsLink]="'/settings'" (logout)="logout()" />
     </header>
 
     <!-- Content -->
