@@ -5,7 +5,8 @@
     <!-- Header -->
     <header class="h-16 bg-white shadow-md flex items-center px-4 justify-between">
       <button (click)="toggleSidebar()" class="text-gray-600 hover:text-blue-600">
-        ☰
+        <ng-icon name="heroChevronDoubleLeftSolid" class="transition-transform duration-500"
+          [class.rotate-180]="!isSidebarOpen"></ng-icon>
       </button>
 
       <h1 class="text-xl font-semibold text-gray-700">{{userName}}</h1>
