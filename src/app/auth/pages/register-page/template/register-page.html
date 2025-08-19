@@ -42,7 +42,7 @@
       <input type="checkbox" name="acceptTerms" id="acceptTerms" formControlName="acceptTerms" class="mr-2" />
       <label for="acceptTerms" class="text-gray-700">{{ registerConfig.acceptTermsLabel}}</label>
       <button type="submit"
-        class="w-full bg-black text-white py-2 rounded-full hover:bg-yellow-600 font-medium transition-normal duration-200 flex items-center justify-center gap-2"
+        class="w-full bg-black text-white py-2 rounded-full hover:text-black  hover:bg-yellow-400 font-medium transition-normal duration-200 flex items-center justify-center gap-2"
         [disabled]="registerForm.invalid || passwordsMatchValid">
         <ng-icon name="bootstrapPersonPlusFill" />
         {{ registerConfig.submitButtonLabel}}
@@ -50,7 +50,7 @@
     </form>
     <div class="flex gap-2 mt-6">
       <p class="text-black">Already have an Account?</p>
-      <a routerLink="/login" class="text-yellow-600 hover:underline block font-semibold">
+      <a routerLink="/login" class="text-gray-600 hover:underline block font-semibold">
         Sign In
       </a>
     </div>

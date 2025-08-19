@@ -30,13 +30,13 @@
           <td class="px-6 py-4 whitespace-nowrap">{{ customer.phone }}</td>
           <td class="px-6 py-4 whitespace-nowrap">
             <button
-              class="inline-flex items-center gap-1 px-2 py-1 bg-black text-white hover:bg-yellow-600 text-sm font-medium rounded-full mr-2 transition duration-200"
+              class="inline-flex items-center gap-1 px-2 py-1 bg-black text-white hover:text-black  hover:bg-yellow-400 text-sm font-medium rounded-full mr-2 transition duration-200"
               (click)="onEditCustomer(customer)">
               <ng-icon name="bootstrapPencilFill" />
               <span>Edit</span>
             </button>
             <button
-              class="inline-flex items-center gap-1 px-2 py-1 bg-black text-white hover:bg-yellow-600 text-sm font-medium rounded-full transition duration-200"
+              class="inline-flex items-center gap-1 px-2 py-1 bg-black text-white hover:text-black  hover:bg-yellow-400 text-sm font-medium rounded-full transition duration-200"
               (click)="onDeleteCustomer(customer)">
               <ng-icon name="bootstrapTrashFill" />
               <span>Delete</span>

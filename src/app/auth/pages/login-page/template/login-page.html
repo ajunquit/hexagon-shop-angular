@@ -24,7 +24,7 @@
         </p>
       </div>
       <button type="submit"
-        class="w-full bg-black text-white py-2 rounded-full hover:bg-yellow-600 font-medium transition-normal duration-200 flex items-center justify-center gap-2"
+        class="w-full bg-black text-white py-2 rounded-full hover:text-black  hover:bg-yellow-400 font-medium transition-normal duration-200 flex items-center justify-center gap-2"
         [disabled]="loginForm.invalid">
         <ng-icon name="heroArrowRightStartOnRectangle" />
         {{loginConfig.submitButtonLabel}}
@@ -32,7 +32,7 @@
     </form>
     <div class="flex gap-2 mt-6">
       <p class="text-black">Not a member yet?</p>
-      <a routerLink="/register" class="text-yellow-600 hover:underline block font-semibold">
+      <a routerLink="/register" class="text-gray-600 hover:underline block font-semibold">
         {{loginConfig.registerLinkLabel}}
       </a>
     </div>
