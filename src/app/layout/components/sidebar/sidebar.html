@@ -8,16 +8,16 @@
         {{sidebarConfig.title}}
     </div>
     <nav class="p-4">
-        <a routerLink="{{sidebarConfig.optionsMenu.dashboard.route}}" routerLinkActive="font-bold text-black"
-            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-yellow-400 hover:text-black">
+        <a routerLink="{{sidebarConfig.optionsMenu.dashboard.route}}" routerLinkActive="font-medium text-black"
+            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-yellow-400 hover:text-black hover:rounded-full ">
             <ng-icon name="bootstrapPieChartFill" />
             {{sidebarConfig.optionsMenu.dashboard.label}}</a>
-        <a routerLink="{{sidebarConfig.optionsMenu.items.route}}" routerLinkActive="font-bold text-black"
-            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-yellow-400 hover:text-black">
+        <a routerLink="{{sidebarConfig.optionsMenu.items.route}}" routerLinkActive="font-medium text-black"
+            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-yellow-400 hover:text-black hover:rounded-full ">
             <ng-icon name="bootstrapCircleSquare" />
             {{sidebarConfig.optionsMenu.items.label}}</a>
-        <a routerLink="{{sidebarConfig.optionsMenu.customers.route}}" routerLinkActive="font-bold text-black"
-            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-yellow-400 hover:text-black">
+        <a routerLink="{{sidebarConfig.optionsMenu.customers.route}}" routerLinkActive="font-medium text-black"
+            class="flex items-center gap-2 py-2 px-3 rounded hover:bg-yellow-400 hover:text-black hover:rounded-full ">
             <ng-icon name="bootstrapPersonFill" />
             {{sidebarConfig.optionsMenu.customers.label}}</a>
         <app-nav-group label="{{ sidebarConfig.optionsMenu.orders.label }}" iconName="bootstrapBoxFill" [id]="'orders'"

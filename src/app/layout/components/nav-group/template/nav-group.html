@@ -1,55 +1,33 @@
-<button
-      type="button"
-      (click)="toggle()"
-      (keydown.enter)="toggle()"
-      (keydown.space)="toggle(); $event.preventDefault()"
-      (keydown.arrowRight)="open = true"
-      (keydown.arrowLeft)="open = false"
-      [attr.aria-expanded]="open"
-      [attr.aria-controls]="panelId"
-      class="w-full flex items-center justify-between gap-2 px-3 py-2 rounded
-             hover:bg-yellow-400 dark:hover:bg-white/10 select-none"
-      [class.text-black]="active()"
-      [class.font-semibold]="active()"
-    >
-      <span class="flex items-center gap-2">
-        <ng-icon *ngIf="iconName" [name]="iconName" class="size-5 shrink-0"></ng-icon>
-        <span>{{ label }}</span>
-      </span>
-      <ng-icon name="bootstrapChevronDown"
-               class="size-4 transition-transform"
-               [class.rotate-180]="open"></ng-icon>
-    </button>
+<button type="button" (click)="toggle()" (keydown.enter)="toggle()" (keydown.space)="toggle(); $event.preventDefault()"
+  (keydown.arrowRight)="open = true" (keydown.arrowLeft)="open = false" [attr.aria-expanded]="open"
+  [attr.aria-controls]="panelId" class="w-full flex items-center justify-between gap-2 px-3 py-2 rounded
+             hover:bg-yellow-400 dark:hover:bg-white/10 select-none hover:rounded-full" [class.text-black]="active()"
+  [class.font-semibold]="active()">
+  <span class="flex items-center gap-2">
+    <ng-icon *ngIf="iconName" [name]="iconName" class="size-5 shrink-0"></ng-icon>
+    <span>{{ label }}</span>
+  </span>
+  <ng-icon name="bootstrapChevronDown" class="size-4 transition-transform" [class.rotate-180]="open"></ng-icon>
+</button>
 
-    <!-- Contenido colapsable con animación -->
-    <div
-      [id]="panelId"
-      class="grid transition-[grid-template-rows] duration-500 ease-in-out"
-      [style.gridTemplateRows]="open ? '1fr' : '0fr'"
-    >
-      <div class="overflow-hidden">
-        <div class="ml-6 border-dashed border-l border-gray-200 dark:border-white/20">
-          <!-- Render items (enlaces o subgrupos) -->
-          <ng-container *ngFor="let it of items">
-            <!-- Subgrupo -->
-            <app-nav-group
-              *ngIf="it.children?.length"
-              [label]="it.label"
-              [iconName]="it.iconName"
-              [items]="it.children!"
-              [openByDefault]="false"
-              [id]="it.id || (id + ':' + it.label)"
-            ></app-nav-group>
+<!-- Contenido colapsable con animación -->
+<div [id]="panelId" class="grid transition-[grid-template-rows] duration-500 ease-in-out"
+  [style.gridTemplateRows]="open ? '1fr' : '0fr'">
+  <div class="overflow-hidden">
+    <div class="ml-6 border-dashed border-l border-gray-200 dark:border-white/20">
+      <!-- Render items (enlaces o subgrupos) -->
+      <ng-container *ngFor="let it of items">
+        <!-- Subgrupo -->
+        <app-nav-group *ngIf="it.children?.length" [label]="it.label" [iconName]="it.iconName" [items]="it.children!"
+          [openByDefault]="false" [id]="it.id || (id + ':' + it.label)"></app-nav-group>
 
-            <!-- Enlace simple -->
-            <a *ngIf="!it.children?.length"
-               [routerLink]="it.route"
-               routerLinkActive="font-medium"
-               class="block pl-4 py-1 hover:text-black dark:hover:text-white flex items-center gap-2">
-              <ng-icon *ngIf="it.iconName" [name]="it.iconName" class="size-4"></ng-icon>
-              <span>{{ it.label }}</span>
-            </a>
-          </ng-container>
-        </div>
-      </div>
+        <!-- Enlace simple -->
+        <a *ngIf="!it.children?.length" [routerLink]="it.route" routerLinkActive="font-medium"
+          class="block pl-4 py-1 hover:text-black dark:hover:text-white flex items-center gap-2">
+          <ng-icon *ngIf="it.iconName" [name]="it.iconName" class="size-4"></ng-icon>
+          <span>{{ it.label }}</span>
+        </a>
+      </ng-container>
     </div>
+  </div>
+</div>
