@@ -5,6 +5,7 @@ import { dashboardRoutes } from './dashboard/dashboard.routes';
 import { MainLayout } from './layout/components/main-layout/main-layout';
 import { itemsRoutes } from './items/items.routes';
 import { ordersRoutes } from './orders/orders.routes';
+import { authGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -12,6 +13,7 @@ export const routes: Routes = [
     path: '',
     component: MainLayout,
     children: [...dashboardRoutes, ...customersRoutes, ...itemsRoutes, ...ordersRoutes],
+    canActivate: [authGuard],
   },
   ...authRoutes,
   { path: '**', redirectTo: 'dashboard' },
