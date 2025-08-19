@@ -37,7 +37,7 @@ export class Sidebar {
   public isSidebarOpen: boolean = true;
 
   public sidebarConfig: SidebarConfig = {
-    title: 'Hexagon',
+    title: 'Hexagon Shop',
     optionsMenu: OPTIONS_MENU_DATA_MOCK,
   };
 
