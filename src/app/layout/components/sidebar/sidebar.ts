@@ -14,10 +14,11 @@ import {
   bootstrapHexagonHalf,
   bootstrapChevronDown,
 } from '@ng-icons/bootstrap-icons';
+import { NavGroup } from '../nav-group/nav-group';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule, RouterModule, NgIcon],
+  imports: [CommonModule, RouterModule, NgIcon, NavGroup],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
   viewProviders: [
